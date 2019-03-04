@@ -1,0 +1,231 @@
+/********************
+ * GLOBAL           *
+ ********************/
+* {
+    font-family: 'Signika', sans-serif;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #FAFAFA;
+    color: rgba(0, 0, 0, 0.75);
+    font-size: 1.25rem;
+}
+
+section {
+    padding: 20px 0px 50px 0px;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 0px;
+}
+
+.flex-container {
+    display: flex;
+    padding: 0px;
+    justify-content: space-between;
+}
+
+.flex-item {
+    padding: 16px;
+}
+
+/********************
+ * TEXTS            *
+ ********************/
+
+h1 {
+    margin: 0px 0px 40px 0px;
+    font-weight: normal;
+}
+
+h1.section-heading {
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+code {
+    font-family: monospace;
+    font-size: 0.8em;
+    padding: 3px;
+    border-radius: 2px;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: crimson;
+}
+
+/********************
+ * BUTTONS          *
+ ********************/
+
+.btn {
+    border-width: 0px;
+    border-radius: 4px;
+    max-width: 300px;
+    padding: 1rem;
+    font-size: 1.75rem;
+}
+
+.btn.btn-light {
+    background-color: #FFFFFF;
+    color: #333333;
+}
+
+.btn.btn-dark {
+    background-color: #40596B;
+    color: #FFFFFF;
+}
+
+.btn.btn-dark:hover {
+    background-color: #454545;
+}
+
+.btn .flex-container {
+    justify-content: center;
+    align-content: center;
+    padding: 0px 20px;
+}
+
+.btn .flex-item {
+    margin: 0px;
+    flex-basis: content; 
+    padding: 0px 5px;
+    line-height: 1.5em;
+}
+
+#go-to-top {
+    position: fixed;
+    border-width: 0px;
+    border-radius: 5px;
+    right: 15px;
+    bottom: 15px;
+    height: 50px;
+    width: 50px;
+    background-color: #FFD05A;
+    color: #40596B;
+}
+
+
+/********************
+ * HEADER           *
+ ********************/
+header {
+    background-color: #40596B;
+    text-align: center;
+    margin: 0px;
+    padding: 3px;
+}
+
+header li {
+    display: inline;
+    padding: 9px;
+}
+
+header a {
+    color: #FFD05B;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+header a:hover {
+    color: #FFFFFF;
+}
+
+
+/********************
+ * FRONT            *
+ ********************/
+#front {
+    background-color: #55C0EC;
+}
+
+#front > .container > .flex-container {
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+
+#title > h1 {
+    margin: 10px;
+    font-size: 5rem;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+#title > p {
+    color: #ffffff;
+    font-size: 1.7rem;
+}
+
+
+/********************
+ * SECTION 1        *
+ ********************/
+/* empty */
+
+
+/********************
+ * SECTION 2        *
+ ********************/
+#section-2 {
+    background-color: #90DDAA;
+}
+
+#section-2 .card-holder {
+    height: 500px;
+}
+
+#section-2 .card {
+    max-height: 10em;
+    max-width: 300px;
+    flex-basis: content;
+}
+
+#section-2 .card > .card-top {
+    min-height: 1em;
+    padding: 60px;
+    background-color: #40596B;
+    border-radius: 5px 5px 0px 0px;
+}
+
+#section-2 .card > .card-bottom {
+    height: 7em;
+    padding: 10px;
+    background-color: #FAFAFA;
+    text-align: center;
+}
+
+
+/********************
+ * SECTION 3        *
+ ********************/
+#section-3 .container > .flex-container {
+    flex-direction: column;
+    align-items: center;
+}
+
+#section-3 .container > .flex-container > .flex-item {
+    flex-basis: content;
+}
+
+#section-3 p {
+    max-width: 550px;
+    text-align: center;
+}
+
+
+/********************
+ * FOOTER           *
+ ********************/
+#footer {
+    background-color: #40596B;
+    color: #CFD5DA;
+    padding: 15px 0px;
+}
+
+#footer .footer-p {
+    text-align: center;
+    font-size: 14px;
+}

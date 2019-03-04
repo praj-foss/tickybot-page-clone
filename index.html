@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TickyBot - Your Support Ticket Slack Bot</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Signika:300,600">
+    <link rel="stylesheet" href="./style.css">
+
+    <script src="jquery.min.js"></script>
+    <script src="./script.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#section-1">About</a></li>
+                <li><a href="#section-2">Features</a></li>
+                <li><a href="#section-3">Add to Slack</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <button id="go-to-top">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 511.189 511.189">
+            <g transform="matrix(1.25 0 0 -1.25 0 45)" style="fill:#40596B;">
+                <path d="M291.886-90.348L213.015,25.876c-6.838,10.069-17.727,9.865-24.201-0.421L116.11-89.927
+                c-6.474-10.286-2.048-18.705,9.842-18.705h21.311v-40.118c0-12.561,10.194-22.756,22.756-22.756h68.267
+                c12.584,0,22.756,10.194,22.756,22.756v40.118h21.606C294.548-108.632,298.735-100.417,291.886-90.348"/>
+                <path d="M40.892-234.902H15.713C4.619-234.902,0-226.801,0-218.962c0,8.078,5.78,15.929,15.713,15.929
+                h84.981c9.944,0,15.724-7.851,15.724-15.929c0-7.839-4.619-15.94-15.724-15.94H75.526V-350.83
+                c0-11.56-7.384-18.022-17.317-18.022s-17.317,6.463-17.317,18.022L40.892-234.902z"/>
+                <path d="M240.447-285.249c0,27.944-14.552,53.134-43.418,53.134c-28.877,0-43.429-25.19-43.429-53.134
+                c0-28.171,14.097-53.111,43.429-53.111S240.447-313.42,240.447-285.249 M117.578-285.249c0,48.037,32.324,85.003,79.451,85.003
+                c46.41,0,79.44-38.127,79.44-85.003c0-47.798-32.097-85.003-79.44-85.003C150.141-370.252,117.578-333.047,117.578-285.249"/>
+                <path d="M325.586-282.473h23.563c14.541,0,23.768,10.627,23.768,24.474
+                c0,13.87-9.227,24.496-23.768,24.496h-23.563V-282.473z M290.93-221.044c0,10.866,6.474,18,18.034,18h40.858
+                c33.963,0,59.13-22.153,59.13-55.182c0-33.712-26.089-54.738-57.731-54.738h-25.634v-37.877c0-11.548-7.384-18.022-17.306-18.022
+                c-9.956,0-17.351,6.474-17.351,18.022V-221.044z"/>
+            </g>
+        </svg>
+    </button>
+
+    <section id="front">
+        <div class="container">
+            <div class="flex-container">
+                <div class="flex-item" id="title">
+                    <h1><strong>Ticky</strong>Bot</h1>
+                    <p>Let your team manage their support tickets 100% inside Slack</p>
+                    <button class="btn btn-light">
+                        <div class="flex-container">
+                            <svg class="flex-item" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="65 70 145 140" height="40" width="40">
+                                <g>
+                                    <path fill="#ECB32D" d="M154.3,87.1c-1.9-5.7-8-8.8-13.7-7c-5.7,1.9-8.8,8-7,13.7l28.1,86.4c1.9,5.3,7.7,8.3,13.2,6.7
+                                    c5.8-1.7,9.3-7.8,7.4-13.4C182.3,173.3,154.3,87.1,154.3,87.1z"/>
+                                    <path fill="#63C1A0" d="M110.8,101.2c-1.9-5.7-8-8.8-13.7-7c-5.7,1.9-8.8,8-7,13.7l28.1,86.4c1.9,5.3,7.7,8.3,13.2,6.7
+                                    c5.8-1.7,9.3-7.8,7.4-13.4C138.8,187.4,110.8,101.2,110.8,101.2z"/>
+                                    <path fill="#E01A59" d="M189.7,158.6c5.7-1.9,8.8-8,7-13.7c-1.9-5.7-8-8.8-13.7-7l-86.5,28.2c-5.3,1.9-8.3,7.7-6.7,13.2
+                                    c1.7,5.8,7.8,9.3,13.4,7.4C103.4,186.7,189.7,158.6,189.7,158.6z"/>
+                                    <path fill="#331433" d="M114.5,183.1c5.6-1.8,12.9-4.2,20.7-6.7c-1.8-5.6-4.2-12.9-6.7-20.7l-20.7,6.7L114.5,183.1z"/>
+                                    <path fill="#D62027" d="M158.1,168.9c7.8-2.5,15.1-4.9,20.7-6.7c-1.8-5.6-4.2-12.9-6.7-20.7l-20.7,6.7L158.1,168.9z"/>
+                                    <path fill="#89D3DF" d="M175.5,115.1c5.7-1.9,8.8-8,7-13.7c-1.9-5.7-8-8.8-13.7-7l-86.4,28.1c-5.3,1.9-8.3,7.7-6.7,13.2
+                                    c1.7,5.8,7.8,9.3,13.4,7.4C89.3,143.1,175.5,115.1,175.5,115.1z"/>
+                                    <path fill="#258B74" d="M100.4,139.5c5.6-1.8,12.9-4.2,20.7-6.7c-2.5-7.8-4.9-15.1-6.7-20.7l-20.7,6.7L100.4,139.5z"/>
+                                    <path fill="#819C3C" d="M143.9,125.4c7.8-2.5,15.1-4.9,20.7-6.7c-2.5-7.8-4.9-15.1-6.7-20.7l-20.7,6.7L143.9,125.4z"/>
+                                </g>
+                            </svg>
+                            <p class="flex-item">Add to <strong>Slack</strong></p>
+                        </div>
+                    </button>
+                </div>
+                <div class="flex-item" id="logo">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 508 508"
+                    width="400px" height="400px">
+                        <circle style="fill:#FFD05B;" cx="254" cy="254" r="254" />
+                        <path style="fill:#F9B54C;" d="M90.8,448.8C134.8,486,191.6,508,254,508s118.8-22.4,163.2-59.2H90.8z" />
+                        <g>
+                        <polygon style="fill:#324A5E;" points="241.2,136.8 234,177.6 274,177.6 266.8,136.8" />
+                        <polygon style="fill:#324A5E;" points="288,300.4 276,302 268,272 278,270.8" />
+                        <polygon style="fill:#324A5E;" points="220,300.4 232,302 240,272 230,270.8" />
+                        <rect x="275.6" y="422.4" style="fill:#324A5E;" width="25.6" height="18.4" />
+                        </g>
+                        <path style="fill:#FFFFFF;" d="M310,447.2c-0.4-4.4-2.8-7.6-5.6-7.6h-32c-2.8,0-5.2,3.2-5.6,7.6H310z" />
+                        <rect x="206.8" y="422.4" style="fill:#324A5E;" width="25.6" height="18.4" />
+                        <g>
+                        <path style="fill:#FFFFFF;" d="M241.6,447.2c-0.4-4.4-2.8-7.6-5.6-7.6h-32c-2.8,0-5.2,3.2-5.6,7.6H241.6z" />
+                        <path style="fill:#FFFFFF;" d="M197.6,395.2c0,39.2,19.6,36.4,28.4,36.4c8.8,0,16,2.8,16-36.4s-7.2-104.8-16-104.8
+                        C216.8,290.4,197.6,356.4,197.6,395.2z" />
+                        <path style="fill:#FFFFFF;" d="M310.4,395.2c0,39.2-19.6,36.4-28.4,36.4s-16,2.8-16-36.4s7.2-104.8,16-104.8
+                        C291.2,290.4,310.4,356.4,310.4,395.2z" />
+                        </g>
+                        <g class="head">
+                        <path id="SVGCleanerId_0" style="fill:#FFFFFF;" d="M333.6,61.2c-10.8-0.8-21.2,2-29.6,7.2c-14,8.4-29.6,13.2-45.6,13.2h-8.8
+                            c-16,0-32-4.8-45.6-13.2c-8.4-5.2-18.8-8-29.6-7.2c-24.8,1.6-45.2,22-46.8,46.8c-2,29.2,21.2,54,50.4,54c9.6,0,18.8-2.8,26.4-7.6
+                            c14-8.8,30.4-13.2,46.8-13.2h6.4c16.4,0,32.8,4.4,46.8,13.2c7.6,4.8,16.8,7.6,26.4,7.6c29.2,0,52.4-24.4,50.4-54
+                            C378.8,82.8,358.4,62.8,333.6,61.2z" />
+                        <path id="SVGCleanerId_0_1_" style="fill:#FFFFFF;" d="M333.6,61.2c-10.8-0.8-21.2,2-29.6,7.2c-14,8.4-29.6,13.2-45.6,13.2h-8.8
+                            c-16,0-32-4.8-45.6-13.2c-8.4-5.2-18.8-8-29.6-7.2c-24.8,1.6-45.2,22-46.8,46.8c-2,29.2,21.2,54,50.4,54c9.6,0,18.8-2.8,26.4-7.6
+                            c14-8.8,30.4-13.2,46.8-13.2h6.4c16.4,0,32.8,4.4,46.8,13.2c7.6,4.8,16.8,7.6,26.4,7.6c29.2,0,52.4-24.4,50.4-54
+                            C378.8,82.8,358.4,62.8,333.6,61.2z" />
+                        <g>
+                            <path style="fill:#84DBFF;" d="M330,151.2c-22,0-40-18-40-40s18-40,40-40s40,18,40,40S352,151.2,330,151.2z" />
+                            <path style="fill:#84DBFF;" d="M178,151.2c-22,0-40-18-40-40s18-40,40-40s40,18,40,40C217.6,133.2,199.6,151.2,178,151.2z" />
+                        </g>
+                        <path style="fill:#54C0EB;" d="M330,134.8c-12.8,0-23.6-10.4-23.6-23.6s10.4-23.6,23.6-23.6c12.8,0,23.6,10.4,23.6,23.6
+                        S343.2,134.8,330,134.8z" />
+                        <g>
+                            <circle style="fill:#FFFFFF;" cx="321.6" cy="97.2" r="11.2" />
+                            <circle style="fill:#FFFFFF;" cx="340.4" cy="128.4" r="6.4" />
+                        </g>
+                        <path style="fill:#54C0EB;" d="M178,134.8c-12.8,0-23.6-10.4-23.6-23.6s10.4-23.6,23.6-23.6c12.8,0,23.6,10.4,23.6,23.6
+                        S190.8,134.8,178,134.8z" />
+                        <g>
+                            <circle style="fill:#FFFFFF;" cx="169.2" cy="97.2" r="11.2" />
+                            <circle style="fill:#FFFFFF;" cx="188" cy="128.4" r="6.4" />
+                        </g>
+                        </g>
+                        <g>
+                        <path style="fill:#324A5E;" d="M305.2,220.4c2.8,7.6,7.2,16.4,12.8,25.2c14.8,22.8,32.8,37.2,40,32.4s1.2-27.2-13.2-49.6
+                        c-5.6-8.8-12-16.4-17.6-22L305.2,220.4z" />
+                        <path style="fill:#324A5E;" d="M364.8,312.4c0,0,6.8,17.6-5.2,43.6c-0.8,2-3.2,3.2-5.6,3.2l0,0c-3.6-0.4-5.6-4-4.8-7.2
+                        c1.6-4.8,3.2-12,3.2-18.4c0-6-7.6-8.8-11.6-4.4c-1.6,1.6-2.8,4-3.6,6.8c-0.8,2.8-4,4-6.4,3.2l0,0c-2.8-0.8-4.4-4-3.2-6.8
+                        C331.6,321.6,342.8,300.4,364.8,312.4z" />
+                        </g>
+                        <path style="fill:#FFFFFF;" d="M376,321.6c0,9.6-2.4,16.4-6,20.4c-9.6-18.8-27.6-26.4-38-29.6c1.2-8.8,3.6-18,7.2-24.8 c-2-3.6-3.2-7.6-4-12.4c17.6-8.8,25.2-17.6,28.8-24c3.2,4.8,5.2,11.6,5.2,18.8c0,5.2-0.8,10-2.4,14C372.4,293.6,376,309.2,376,321.6 z"
+                        />
+                        <g>
+                        <path style="fill:#324A5E;" d="M202.8,220.4c-2.8,7.6-7.2,16.4-12.8,25.2c-14.8,22.8-32.8,37.2-40,32.4s-1.2-27.2,13.2-49.6
+                        c5.6-8.8,12-16.4,17.6-22L202.8,220.4z" />
+                        <path style="fill:#324A5E;" d="M177.2,339.2c-2.8,0.8-5.6-0.4-6.4-3.2c-0.8-2.8-2.4-5.2-3.6-6.8c-4-4.8-11.2-2-11.6,4.4
+                        c0,6.4,1.6,13.6,3.2,18.4c0,0.4,1.6,6-4.8,7.2c-2.4,0.4-4.4-0.8-5.6-3.2c-3.6-7.6-5.6-14.8-6.4-20.4c8-10.8,18.8-17.2,27.6-20.8
+                        c5.6,5.2,9.2,12.4,11.2,17.6C180.8,332.8,182,337.6,177.2,339.2z" />
+                        </g>
+                        <g>
+                        <path style="fill:#FFFFFF;" d="M132,321.6c0,9.6,2.4,16.4,6,20.4c9.6-18.8,27.6-26.4,38-29.6c-1.2-8.8-3.6-18-7.2-24.8
+                        c2-3.6,3.2-7.6,4-12.4c-17.6-8.8-25.2-17.6-28.8-24c-3.2,4.8-5.2,11.6-5.2,18.8c0,5.2,0.8,10,2.4,14
+                        C135.6,293.6,132,309.2,132,321.6z" />
+                        <path style="fill:#FFFFFF;" d="M314,188c-4.4,0-8.8,1.2-12.4,3.2c-4.4-10-13.2-16.8-24-16.8h-47.2c-10.8,0-19.6,7.2-24,16.8
+                        c-3.6-2-8-3.2-12.4-3.2c-14,0-25.6,11.6-25.6,25.6s11.6,25.6,25.6,25.6c5.2,0,9.6-1.6,13.6-4l2.8,20.4c2,14.8,13.2,25.6,26.4,25.6
+                        h34c13.2,0,24.4-10.8,26.4-25.6l2.8-20.4c4,2.4,8.8,4,13.6,4c14,0,25.6-11.6,25.6-25.6C339.6,199.2,328,188,314,188z"
+                        />
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-1">
+        <div class="container">
+            <h1 class="section-heading">What Is <strong>Ticky</strong>Bot</h1>
+            <div class="flex-container">
+                <div class="flex-item">
+                    <p>
+                        <strong>Ticky</strong>Bot is a Slack Bot 🤖 that lets you use 
+                        support tickets on Slack. This way, you don't 
+                        need to leave your beloved channel to assist 
+                        your users, if you don't feel like it.
+                    </p>
+                </div>
+                <div class="flex-item">
+                    <p>
+                        With <strong>Ticky</strong>Bot you can easily check if you've 
+                        received new tickets, change their status, or 
+                        write a reply, and the ticket will instantly 
+                        update itself on our site.
+                    </p>
+                </div>
+            </div>
+            <div class="flex-container">
+                <div class="flex-item">
+                    <p>
+                        Support requests shouldn't be handled through Slack's 
+                        direct messages.<br>
+                        <em>Image about someone asking 
+                        silly questions and the workplace admin asking him/her 
+                        to open a support ticket so other admins could look 
+                        into the issue.</em>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-2">
+        <div class="container">
+            <h1 class="section-heading">How It Works</h1>
+            <div class="flex-container card-holder">
+                <div class="flex-item card">
+                    <div class="flex-item card card-top">
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512">
+                            <path style="fill:#F2F2F2;" d="M385.067,0H57.6C45.867,0,36.267,9.6,36.267,21.333v469.333C36.267,502.4,45.867,512,57.6,512 h395.733c11.733,0,21.333-9.6,21.333-21.333v-400L385.067,0z"/>
+                            <path style="fill:#CDD6E0;" d="M385.067,62.933c0,14.933,11.733,27.733,27.733,27.733h62.933L385.067,0V62.933z"/>
+                            <rect x="201.6" y="107.733" style="fill:#ACB3BA;" width="274.133" height="50.133"/>
+                            <path style="fill:#54C1EC;" d="M57.6,0C45.867,0,36.267,9.6,36.267,21.333v469.333C36.267,502.4,45.867,512,57.6,512h142.933V0H57.6 z"/>
+                            <circle style="fill:#FF7055;" cx="119.467" cy="132.267" r="56.533"/>
+                            <g>
+                            <rect x="55.467" y="433.067" style="fill:#324A5E;" width="125.867" height="21.333"/>
+                            <rect x="55.467" y="366.933" style="fill:#324A5E;" width="125.867" height="21.333"/>
+                            </g>
+                            <g>
+                            <rect x="231.467" y="235.733" style="fill:#54C1EC;" width="213.333" height="21.333"/>
+                            <rect x="231.467" y="301.867" style="fill:#54C1EC;" width="213.333" height="21.333"/>
+                            <rect x="231.467" y="366.933" style="fill:#54C1EC;" width="213.333" height="21.333"/>
+                            <rect x="338.133" y="433.067" style="fill:#54C1EC;" width="106.667" height="21.333"/>
+                            </g>
+                            <rect x="272" y="121.6" style="fill:#CDD6E0;" width="132.267" height="21.333"/>
+                            <g>
+                            <path style="fill:#F2F2F2;" d="M96,117.333c6.4,25.6,23.467,26.667,23.467,26.667s16-2.133,23.467-26.667c0,0,3.2-3.2,1.067-13.867 c0,0-2.133-22.4-23.467-22.4s-25.6,22.4-25.6,22.4C92.8,114.133,96,117.333,96,117.333z"/>
+                            <path style="fill:#F2F2F2;" d="M161.067,152.533c-7.467,16-23.467,26.667-42.667,26.667s-35.2-10.667-42.667-26.667 c1.067-1.067,3.2-1.067,4.267-2.133l18.133-6.4l2.133-1.067c8.533,8.533,17.067,9.6,17.067,9.6h1.067h1.067 c0,0,8.533-1.067,17.067-9.6l2.133,1.067l18.133,6.4C158.933,151.467,160,151.467,161.067,152.533z"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="flex-item card card-bottom">
+                        <p>You can add <strong>Ticky</strong>Bot to your Slack workplace by scrolling down or <a href="#">clicking here</a></p>
+                    </div>
+                </div>
+                <div class="flex-item card">
+                    <div class="flex-item card card-top">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 508 508">
+                            <circle style="fill:#54C1EC;" cx="254" cy="254" r="254"/>
+                            <path style="fill:#324A5E;" d="M185.2,191.6v133.2c0,6.4,5.2,11.2,11.2,11.2h111.2l81.6,56.8L374.4,336h26.8 c6.4,0,11.2-5.2,11.2-11.2V191.6c0-6.4-5.2-11.2-11.2-11.2H196.4C190,180.4,185.2,185.2,185.2,191.6z"/>
+                            <path style="fill:#FF7055;" d="M366.4,128.8v158.4c0,7.6-6,13.6-13.6,13.6H220.4L123.2,368l17.6-67.6h-32c-7.6,0-13.6-6-13.6-13.6 v-158c0-7.6,6-13.6,13.6-13.6h244C360,115.2,366.4,121.2,366.4,128.8z"/>
+                            <g>
+                            <circle style="fill:#E6E9EE;" cx="153.6" cy="208" r="19.6"/>
+                                <circle style="fill:#E6E9EE;" cx="230.8" cy="208" r="19.6"/>
+                                <circle style="fill:#E6E9EE;" cx="307.6" cy="208" r="19.6"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="flex-item card card-bottom">
+                        <p>Your users can open a ticket by typing <code>/ticket</code> and their message into the chat field</p>
+                    </div>
+                </div>
+                <div class="flex-item card">
+                    <div class="flex-item card card-top">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512">
+                            <path style="fill:#F3F3F3;" d="M512,114.133V480c0,18.133-13.867,32-32,32H32c-18.133,0-32-13.867-32-32V114.133H512z"/>
+                            <path style="fill:#54C1EC;" d="M512,114.133V32c0-18.133-13.867-32-32-32H32C13.867,0,0,13.867,0,32v82.133H512z"/>
+                            <g>
+                            <circle style="fill:#FFFFFF;" cx="64" cy="56.533" r="23.467"/>
+                            <circle style="fill:#FFFFFF;" cx="133.333" cy="56.533" r="23.467"/>
+                            <circle style="fill:#FFFFFF;" cx="201.6" cy="56.533" r="23.467"/>
+                            </g>
+                            <path style="fill:#CED6E0;" d="M117.333,165.333h-60.8c-3.2,0-5.333,2.133-5.333,5.333v61.867c0,3.2,2.133,5.333,5.333,5.333h60.8  c3.2,0,5.333-2.133,5.333-5.333v-61.867C122.667,167.467,120.533,165.333,117.333,165.333z M113.067,226.133h-51.2v-51.2h51.2  V226.133z"/>
+                            <path style="fill:#FF7055;" d="M86.4,236.8c-2.133,0-4.267-1.067-5.333-2.133l-27.733-27.733c-3.2-3.2-3.2-8.533,0-11.733 c3.2-3.2,8.533-3.2,11.733,0l19.2,19.2c6.4-11.733,21.333-32,48-51.2c3.2-2.133,8.533-2.133,10.667,2.133 c2.133,3.2,2.133,8.533-2.133,10.667c-37.333,26.667-48,54.4-48,54.4c-1.067,2.133-3.2,4.267-5.333,5.333 C87.467,236.8,87.467,236.8,86.4,236.8z"/>
+                            <g>
+                            <rect x="158.933" y="170.667" style="fill:#CED6E0;" width="309.333" height="19.2"/>
+                            <rect x="158.933" y="212.267" style="fill:#CED6E0;" width="165.333" height="19.2"/>
+                            <path style="fill:#CED6E0;" d="M117.333,268.8h-60.8c-3.2,0-5.333,2.133-5.333,5.333V336c0,3.2,2.133,5.333,5.333,5.333h60.8 c3.2,0,5.333-2.133,5.333-5.333v-61.867C122.667,270.933,120.533,268.8,117.333,268.8z M113.067,330.667h-51.2v-51.2h51.2V330.667z"/>
+                            </g>
+                            <path style="fill:#FF7055;" d="M86.4,340.267c-2.133,0-4.267-1.067-5.333-2.133L53.333,310.4c-3.2-3.2-3.2-8.533,0-11.733 c3.2-3.2,8.533-3.2,11.733,0l19.2,19.2c6.4-11.733,21.333-32,48-51.2c3.2-2.133,8.533-2.133,10.667,2.133 c2.133,3.2,2.133,8.533-2.133,10.667c-37.333,26.667-48,54.4-48,54.4c-1.067,2.133-3.2,4.267-5.333,5.333 C87.467,340.267,87.467,340.267,86.4,340.267z"/>
+                            <g>
+                            <rect x="158.933" y="274.133" style="fill:#CED6E0;" width="309.333" height="19.2"/>
+                            <rect x="158.933" y="315.733" style="fill:#CED6E0;" width="165.333" height="19.2"/>
+                            <path style="fill:#CED6E0;" d="M117.333,372.267h-60.8c-3.2,0-5.333,2.133-5.333,5.333v61.867c0,3.2,2.133,5.333,5.333,5.333h60.8 c3.2,0,5.333-2.133,5.333-5.333V377.6C122.667,374.4,120.533,372.267,117.333,372.267z M113.067,434.133h-51.2v-51.2h51.2V434.133z"/>
+                            <rect x="158.933" y="377.6" style="fill:#CED6E0;" width="309.333" height="19.2"/>
+                            <rect x="158.933" y="419.2" style="fill:#CED6E0;" width="165.333" height="19.2"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="flex-item card card-bottom">
+                        <p>Once you or another admin solved their problems you can type <code>/ticket close #id</code> to close the ticket</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-3">
+        <div class="container">
+            <h1 class="section-heading">Start Using <strong>Ticky</strong>Bot Today</h1>
+            <div class="flex-container">
+                <div class="flex-item">
+                    <p>
+                        <strong>Ticky</strong>Bot allows Slack teams to manage their support 
+                        tickets 100% inside Slack, without having to switch 
+                        between different apps.
+                    </p>
+                </div>
+                <div class="flex-item">
+                        <button class="btn btn-dark">
+                                <div class="flex-container">
+                                    <svg class="flex-item" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="65 70 145 140" height="40" width="40">
+                                        <g>
+                                            <path fill="#ECB32D" d="M154.3,87.1c-1.9-5.7-8-8.8-13.7-7c-5.7,1.9-8.8,8-7,13.7l28.1,86.4c1.9,5.3,7.7,8.3,13.2,6.7
+                                            c5.8-1.7,9.3-7.8,7.4-13.4C182.3,173.3,154.3,87.1,154.3,87.1z"/>
+                                            <path fill="#63C1A0" d="M110.8,101.2c-1.9-5.7-8-8.8-13.7-7c-5.7,1.9-8.8,8-7,13.7l28.1,86.4c1.9,5.3,7.7,8.3,13.2,6.7
+                                            c5.8-1.7,9.3-7.8,7.4-13.4C138.8,187.4,110.8,101.2,110.8,101.2z"/>
+                                            <path fill="#E01A59" d="M189.7,158.6c5.7-1.9,8.8-8,7-13.7c-1.9-5.7-8-8.8-13.7-7l-86.5,28.2c-5.3,1.9-8.3,7.7-6.7,13.2
+                                            c1.7,5.8,7.8,9.3,13.4,7.4C103.4,186.7,189.7,158.6,189.7,158.6z"/>
+                                            <path fill="#331433" d="M114.5,183.1c5.6-1.8,12.9-4.2,20.7-6.7c-1.8-5.6-4.2-12.9-6.7-20.7l-20.7,6.7L114.5,183.1z"/>
+                                            <path fill="#D62027" d="M158.1,168.9c7.8-2.5,15.1-4.9,20.7-6.7c-1.8-5.6-4.2-12.9-6.7-20.7l-20.7,6.7L158.1,168.9z"/>
+                                            <path fill="#89D3DF" d="M175.5,115.1c5.7-1.9,8.8-8,7-13.7c-1.9-5.7-8-8.8-13.7-7l-86.4,28.1c-5.3,1.9-8.3,7.7-6.7,13.2
+                                            c1.7,5.8,7.8,9.3,13.4,7.4C89.3,143.1,175.5,115.1,175.5,115.1z"/>
+                                            <path fill="#258B74" d="M100.4,139.5c5.6-1.8,12.9-4.2,20.7-6.7c-2.5-7.8-4.9-15.1-6.7-20.7l-20.7,6.7L100.4,139.5z"/>
+                                            <path fill="#819C3C" d="M143.9,125.4c7.8-2.5,15.1-4.9,20.7-6.7c-2.5-7.8-4.9-15.1-6.7-20.7l-20.7,6.7L143.9,125.4z"/>
+                                        </g>
+                                    </svg>
+                                    <p class="flex-item">Add to <strong>Slack</strong></p>
+                                </div>
+                            </button>
+                </div>
+                <div class="flex-item">
+                    <p>
+                        ... so you don't need to go back and forth with another app.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="footer">
+        <div class="container">
+            <p class="footer-p">
+                Made with ❤️ by Priyadarshi Raj<br>
+                Source code is available on my GitHub page<br>
+                The app is not created by, affiliated with, or 
+                supported by Slack Technologies, Inc.
+            </p>
+        </div>
+    </section>
+</body>
+</html>
